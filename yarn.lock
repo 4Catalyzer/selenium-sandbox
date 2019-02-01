@@ -2680,6 +2680,11 @@ escodegen@^1.9.1:
   optionalDependencies:
     source-map "~0.6.1"
 
+eslint-config-4catalyzer-jest@^1.1.0:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/eslint-config-4catalyzer-jest/-/eslint-config-4catalyzer-jest-1.1.1.tgz#6d007239b2f68afcc6e5cef99998e77bc8203bc8"
+  integrity sha512-TEi9XNmJeYS0ZM6y9QW+USJ/5w9bd2qdZxRp+5v7Dh9iPepS2WzHlXihPXCCZOcEC5CIIoZYxl8PB9X/NCfABQ==
+
 eslint-config-4catalyzer-typescript@^0.10.1:
   version "0.10.1"
   resolved "https://registry.yarnpkg.com/eslint-config-4catalyzer-typescript/-/eslint-config-4catalyzer-typescript-0.10.1.tgz#1408f8bcb968ac5a3ab65463cabdca5288d2d30d"
