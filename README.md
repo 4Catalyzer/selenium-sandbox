@@ -13,7 +13,7 @@ easily mock a web application accessed through selenium. Contains also an enviro
 First, we need to instrument our application to use the sandbox environment. Create a module (let's call it `injectSandbox.js`)
 
 ```js
-import sandbox from 'selenium-sandbox/lib/sandbox';
+import sandbox from '@4c/selenium-sandbox/lib/sandbox';
 
 const store = {
   widgets: [],
@@ -32,7 +32,7 @@ sandbox.fetchMock.mock('path:/api/v1/widgets', () => store.widgets);
 Add utilities to an already existing selenium driver (v4):
 
 ```js
-import { augmentDriver } from 'selenium-sandbox/lib/selenium';
+import { augmentDriver } from '@4c/selenium-sandbox/lib/selenium';
 
 const driver = augmentDriver(
   myBaseSeleniumDriver,
@@ -43,7 +43,7 @@ const driver = augmentDriver(
 ... Alternatively you can use buildDriver to instantiate a reasonably opinionated driver:
 
 ```js
-import { buildDriver } from 'selenium-sandbox/lib/selenium';
+import { buildDriver } from '@4c/selenium-sandbox/lib/selenium';
 
 const driver = buildDriver(
   baseUrl: 'http://sandboxed-app-to-test';
@@ -122,10 +122,10 @@ add the following line to your jest config:
 ```js
 {
   // ...
-  testEnvironment: '<rootDir>/node_modules/selenium-sandbox/lib/jest/environment.js',
-  setupTestFrameworkScriptFile: '<rootDir>/node_modules/selenium-sandbox/lib/jest/setup.js',
+  testEnvironment: '@4c/selenium-sandbox/lib/jest/environment.js',
+  setupTestFrameworkScriptFile: '@4c/selenium-sandbox/lib/jest/setup.js',
   testEnvironmentOptions: {
-    seleniumOptions: {
+    testEnvironmentOptions: {
       baseUrl: 'http://sandboxed-app-to-test';
       seleniumAddress: 'localhost:5000/wd/hub';
       browserName: 'chrome';
@@ -150,7 +150,7 @@ this will:
 Type definitions come out of the box. For full jest support, you should add the following declaration to be used in your test file:
 
 ```ts
-import { AugmentedDriver } from 'selenium-sandbox/lib/selenium';
+import { AugmentedDriver } from '@4c/selenium-sandbox/lib/selenium';
 
 // define a context type that reflects the context passed in `setupTextContext`
 type Context = {

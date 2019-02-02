@@ -8,10 +8,10 @@ export class SeleniumEnvironment extends NodeEnvironment {
     browser: AugmentedDriver<unknown>;
   };
 
-  constructor(config: { seleniumOptions: Config }) {
+  constructor(config: { testEnvironmentOptions: Config }) {
     super(config);
     this.global = this['global'] || {};
-    this.config = config.seleniumOptions;
+    this.config = config.testEnvironmentOptions;
   }
 
   async setup() {
