@@ -3,7 +3,8 @@ module.exports = {
     [
       "@4c/4catalyzer",
       {
-        target: "node"
+        target: "node",
+        include: [],
       }
     ],
     "@babel/preset-typescript"

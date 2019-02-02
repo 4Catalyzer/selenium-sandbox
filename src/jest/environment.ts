@@ -1,8 +1,8 @@
-import { NodeEnvironment } from 'jest-environment-node';
+import NodeEnvironment from 'jest-environment-node';
 
 import { AugmentedDriver, Config, buildDriver } from '../selenium';
 
-export class SeleniumEnvironment extends NodeEnvironment {
+export default class SeleniumEnvironment extends NodeEnvironment {
   config: Config;
   global: {
     browser: AugmentedDriver<unknown>;
