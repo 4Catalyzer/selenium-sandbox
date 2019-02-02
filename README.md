@@ -147,7 +147,7 @@ this will:
 
 ## Typescript Support
 
-Type definition comes out of the box. For full jest support, you should add the following declaration to be used in your test file:
+Type definitions come out of the box. For full jest support, you should add the following declaration to be used in your test file:
 
 ```ts
 import { AugmentedDriver } from 'selenium-sandbox/lib/selenium';
