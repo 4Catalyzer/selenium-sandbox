@@ -3,6 +3,7 @@
   "version": "0.1.0-alpha.4",
   "main": "lib/index.js",
   "module": "es/index.js",
+  "files": ["lib", "es"],
   "repository": {
     "type": "git",
     "url": "https://github.com/4Catalyzer/selenium-sandbox.git"
