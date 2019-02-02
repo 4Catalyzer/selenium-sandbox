@@ -2,7 +2,7 @@ import NodeEnvironment from 'jest-environment-node';
 
 import { AugmentedDriver, Config, buildDriver } from '../selenium';
 
-export default class SeleniumEnvironment extends NodeEnvironment {
+class SeleniumEnvironment extends NodeEnvironment {
   config: Config;
   global: {
     browser: AugmentedDriver<unknown>;
@@ -41,3 +41,6 @@ export default class SeleniumEnvironment extends NodeEnvironment {
     await super.teardown();
   }
 }
+
+// export in a way that is ingestible by jest
+module.exports = SeleniumEnvironment;
