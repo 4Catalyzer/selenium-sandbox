@@ -6,7 +6,7 @@ easily mock a web application accessed through selenium. Contains also an enviro
 
 ### 0. Install
 
-    yarn add -D selenium-sandbox
+    yarn add -D @4c/selenium-sandbox
 
 ### 1. Add the sandbox to your test client
 

@@ -1,6 +1,6 @@
 {
-  "name": "selenium-sandbox",
-  "version": "1.0.0",
+  "name": "@4c/selenium-sandbox",
+  "version": "0.1.0-alpha.1",
   "main": "lib/index.js",
   "module": "es/index.js",
   "repository": {
