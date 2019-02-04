@@ -13,7 +13,7 @@ import { Context, STARTUP_STORAGE_KEY } from './sandbox';
 
 const WAIT_TIMEOUT = 1000 * 10;
 
-export type Config = {
+export interface Config {
   baseUrl: string;
   seleniumAddress: string;
   browserName: 'chrome';
@@ -21,7 +21,7 @@ export type Config = {
   mobileEmulation?: {
     deviceName: string;
   };
-};
+}
 
 export function augmentDriver<T>(driver: WebDriver, baseUrl: string) {
   const getBase = driver.get.bind(driver);

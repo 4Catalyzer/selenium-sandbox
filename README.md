@@ -27,6 +27,8 @@ sandbox.setupTextContext(context);
 sandbox.fetchMock.mock('path:/api/v1/widgets', () => store.widgets);
 ```
 
+> **Note**: documentation for `fetchMock` can be found [here](https://github.com/wheresrhys/fetch-mock)
+
 ### 2. Instrument Selenium
 
 Add utilities to an already existing selenium driver (v4):
@@ -73,7 +75,7 @@ await driver.click(button);
 
 If a request needs to be mocked _before_ page loading, you can use `executeAtStartup` instead of `executeInBrowser`. the code will be stored in storage and executed when the assets are loaded
 
-> **Note**: Since the function passed to `executeInBrowser` or `executeAtStartup` needs to be stringified in order to be executed in the remote browser, it cannot access variables definied outside of its body.
+> **Note**: Since the function passed to `executeInBrowser` or `executeAtStartup` needs to be stringified in order to be executed in the remote browser, it cannot access variables defined outside of its body.
 
 You can also access fetchMock from the context to make additional mocks:
 
@@ -123,19 +125,17 @@ add the following line to your jest config:
 {
   // ...
   testEnvironment: '@4c/selenium-sandbox/lib/jest/environment.js',
-  setupTestFrameworkScriptFile: '@4c/selenium-sandbox/lib/jest/setup.js',
+  setupFilesAfterEnv: ['@4c/selenium-sandbox/lib/jest/setup.js'],
   testEnvironmentOptions: {
-    testEnvironmentOptions: {
-      baseUrl: 'http://sandboxed-app-to-test';
-      seleniumAddress: 'localhost:5000/wd/hub';
-      browserName: 'chrome';
-      screenSize: [1024, 768];
-      // optional
-      mobileEmulation: {
-          deviceName: 'iPhone 6/7/8',
-      };
+    baseUrl: 'http://sandboxed-app-to-test',
+    seleniumAddress: 'localhost:5000/wd/hub',
+    browserName: 'chrome',
+    screenSize: [1024, 768],
+    // optional
+    mobileEmulation: {
+        deviceName: 'iPhone 6/7/8',
     },
-  };
+  },
 }
 ```
 
