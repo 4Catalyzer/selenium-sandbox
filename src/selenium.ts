@@ -1,13 +1,13 @@
 import {
   Builder,
   By,
-  FileDetector,
   IWebElement,
   WebDriver,
   until,
 } from 'selenium-webdriver';
 import chrome from 'selenium-webdriver/chrome';
 import { Origin } from 'selenium-webdriver/lib/input';
+import { FileDetector } from 'selenium-webdriver/remote';
 
 import { Context, STARTUP_STORAGE_KEY } from './sandbox';
 
