@@ -10,7 +10,7 @@
   "license": "MIT",
   "scripts": {
     "babel": "babel src --ignore **/__tests__ --delete-dir-on-start -x .js,.ts,.tsx",
-    "build:types": "tsc --outDir lib",
+    "build:types": "tsc --emitDeclarationOnly --outDir lib",
     "build": "yarn babel -d lib && yarn build:types",
     "prepublishOnly": "yarn run build",
     "release": "rollout",
