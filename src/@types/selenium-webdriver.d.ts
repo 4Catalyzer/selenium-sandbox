@@ -18,7 +18,6 @@ declare module 'selenium-webdriver' {
     }): Promise<undefined>;
   }
 
-  
   export interface ActionSequence extends ActionSequence {
     move(config: {
       x: number;
