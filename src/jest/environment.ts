@@ -1,6 +1,6 @@
 import NodeEnvironment from 'jest-environment-node';
 
-import { AugmentedDriver, Config, buildDriver } from '../selenium';
+import { AugmentedDriver, Config, buildDriver } from '../webdriver';
 
 class SeleniumEnvironment extends NodeEnvironment {
   config: Config;

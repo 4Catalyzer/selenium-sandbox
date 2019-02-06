@@ -1,5 +1,7 @@
-lib/
-es/
+/@types
+/browser
+/jest
+/webdriver
 
 # Logs
 logs

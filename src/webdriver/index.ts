@@ -9,7 +9,7 @@ import chrome from 'selenium-webdriver/chrome';
 import { Origin } from 'selenium-webdriver/lib/input';
 import { FileDetector } from 'selenium-webdriver/remote';
 
-import { Context, STARTUP_STORAGE_KEY } from './sandbox';
+import { Context, STARTUP_STORAGE_KEY } from '../browser';
 
 const WAIT_TIMEOUT = 1000 * 10;
 
