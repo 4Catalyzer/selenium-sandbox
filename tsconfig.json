@@ -1,25 +1,8 @@
 {
+  "extends": "@4c/tsconfig/node",
   "compilerOptions": {
     "rootDir": "src",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "forceConsistentCasingInFileNames": true,
-    "jsx": "react",
-    "lib": ["es2016", "es2017"],
-    "types": ["node"],
-    "target": "esnext",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "noUnusedParameters": true,
-    "strict": true,
-    "strictFunctionTypes": false,
-    "sourceMap": true,
-    "skipLibCheck": true
+    "types": ["node", "jest"]
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"]
+  "include": ["src"]
 }
