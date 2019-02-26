@@ -136,7 +136,7 @@ export async function buildDriver(config: Config) {
   const driver = await builder.build();
 
   await driver.manage().setTimeouts({
-    implicit: WAIT_TIMEOUT,
+    implicit: 0,
     pageLoad: WAIT_TIMEOUT,
     script: WAIT_TIMEOUT,
   });
