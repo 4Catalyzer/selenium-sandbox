@@ -27,3 +27,9 @@ declare module 'selenium-webdriver' {
     }): ActionSequence;
   }
 }
+
+declare module 'selenium-webdriver/chrome' {
+  export interface Options {
+    windowSize(size: { width: number; height: number }): Options;
+  }
+}

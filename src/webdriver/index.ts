@@ -17,6 +17,7 @@ export interface Config {
   baseUrl: string;
   seleniumAddress: string;
   browserName: 'chrome';
+  headless: boolean;
   screenSize: [number, number];
   mobileEmulation?: {
     deviceName: string;
@@ -126,11 +127,12 @@ export async function buildDriver(config: Config) {
   const [width, height] = config.screenSize;
 
   if (config.browserName === 'chrome') {
-    builder.setChromeOptions(
-      new chrome.Options()
-        .addArguments(`window-size=${width},${height}`)
-        .setMobileEmulation(config.mobileEmulation),
-    );
+    let options = new chrome.Options().windowSize({ height, width });
+    options = config.mobileEmulation
+      ? options.setMobileEmulation(config.mobileEmulation)
+      : options;
+    options = config.headless ? options.headless() : options;
+    builder.setChromeOptions(options);
   }
 
   const driver = await builder.build();
