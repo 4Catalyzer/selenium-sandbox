@@ -1,6 +1,6 @@
 {
   "name": "@4c/selenium-sandbox",
-  "version": "0.1.1",
+  "version": "0.1.2-alpha.1",
   "main": "browser/index.js",
   "repository": {
     "type": "git",
