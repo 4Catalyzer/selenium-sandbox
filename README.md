@@ -22,7 +22,7 @@ const store = {
 // additional properties and methods that can be accessed from selenium. for example here we are passing a store object
 const context = { store };
 
-sandbox.setupTextContext(context);
+sandbox.setupTestContext(context);
 
 sandbox.fetchMock.mock('path:/api/v1/widgets', () => store.widgets);
 ```
@@ -152,7 +152,7 @@ Type definitions come out of the box. For full jest support, you should add the 
 ```ts
 import { AugmentedDriver } from '@4c/selenium-sandbox/webdriver';
 
-// define a context type that reflects the context passed in `setupTextContext`
+// define a context type that reflects the context passed in `setupTestContext`
 type Context = {
   store: {
     widgets: {}[];

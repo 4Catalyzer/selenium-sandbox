@@ -6,7 +6,7 @@ export const STARTUP_STORAGE_KEY = 'selenium-context-test-startup';
 
 export type Context<T> = T & { fetchMock: typeof fetchMock };
 
-function setupTextContext<T>(context: T) {
+function setupTestContext<T>(context: T) {
   fetchMock.config.fallbackToNetwork = true;
   fetchMock.config.warnOnFallback = true;
 
@@ -22,6 +22,6 @@ function setupTextContext<T>(context: T) {
 }
 
 export default {
-  setupTextContext,
+  setupTestContext,
   fetchMock,
 };
