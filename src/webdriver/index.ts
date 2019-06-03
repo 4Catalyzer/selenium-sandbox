@@ -89,10 +89,10 @@ export function augmentDriver<T>(driver: WebDriver, baseUrl: string) {
       await driver
         .actions({ bridge: true })
         .move({
-          x: 10000,
-          y: 10000,
+          x: 0,
+          y: 0,
           duration: 1,
-          origin: Origin.POINTER,
+          origin: Origin.VIEWPORT,
         })
         .perform();
     },
