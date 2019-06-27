@@ -58,7 +58,8 @@
     "testEnvironment": "node"
   },
   "release": {
-    "publishDir": "lib"
+    "publishDir": "lib",
+    "conventionalCommits": true
   },
   "devDependencies": {
     "@4c/babel-preset": "^4.1.3",
