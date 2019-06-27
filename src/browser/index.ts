@@ -1,4 +1,4 @@
-import fetchMock from 'fetch-mock';
+import fetchMock from '@4c/fetch-mock';
 
 declare const window: any;
 
