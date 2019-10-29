@@ -11,7 +11,7 @@ import { FileDetector } from 'selenium-webdriver/remote';
 
 import { Context, STARTUP_STORAGE_KEY } from '../browser';
 
-const WAIT_TIMEOUT = 1000 * 10;
+const DEFAULT_WAIT_TIMEOUT = 1000 * 10;
 
 export interface Config {
   baseUrl: string;
@@ -19,6 +19,7 @@ export interface Config {
   browserName: 'chrome';
   headless: boolean;
   screenSize: [number, number];
+  waitTimeout?: number;
   mobileEmulation?: {
     deviceName: string;
   };
@@ -26,6 +27,7 @@ export interface Config {
 
 export function augmentDriver<T>(driver: WebDriver, baseUrl: string) {
   const getBase = driver.get.bind(driver);
+  let waitTimeout = DEFAULT_WAIT_TIMEOUT;
 
   return Object.assign(driver, {
     get: (urlPath: string) => getBase(`${baseUrl}${urlPath}`),
@@ -49,19 +51,19 @@ export function augmentDriver<T>(driver: WebDriver, baseUrl: string) {
               })()
               return result;
               `),
-        WAIT_TIMEOUT,
+        waitTimeout,
         'images never loaded',
       ),
 
     find: async (selector: string) => {
       const element = await driver.wait(
         until.elementLocated(By.xpath(selector)),
-        WAIT_TIMEOUT,
+        waitTimeout,
         `element ${selector} not located`,
       );
       await driver.wait(
         until.elementIsVisible(element),
-        WAIT_TIMEOUT,
+        waitTimeout,
         `element ${selector} not located`,
       );
       await (driver as AugmentedDriver<T>).waitForAllImages();
@@ -116,6 +118,15 @@ export function augmentDriver<T>(driver: WebDriver, baseUrl: string) {
       (driver as AugmentedDriver<T>).executeInBrowser(({ fetchMock }) =>
         fetchMock.lastCall(),
       ),
+
+    setTimeouts: async (timeout: number) => {
+      waitTimeout = timeout;
+      await driver.manage().setTimeouts({
+        implicit: 0,
+        pageLoad: waitTimeout,
+        script: waitTimeout,
+      });
+    },
   });
 }
 
@@ -137,17 +148,16 @@ export async function buildDriver(config: Config) {
 
   const driver = await builder.build();
 
-  await driver.manage().setTimeouts({
-    implicit: 0,
-    pageLoad: WAIT_TIMEOUT,
-    script: WAIT_TIMEOUT,
-  });
-
   // Needed to test file upload with remote webdriver
   // https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/remote/index_exports_FileDetector.html
   driver.setFileDetector(new FileDetector());
 
-  return augmentDriver(driver, config.baseUrl);
+  const augmentedDriver = augmentDriver(driver, config.baseUrl);
+  await augmentedDriver.setTimeouts(
+    config.waitTimeout || DEFAULT_WAIT_TIMEOUT,
+  );
+
+  return augmentedDriver;
 }
 
 // XXX the only reason for this class to exist is to be able to extract
