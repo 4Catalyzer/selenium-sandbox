@@ -135,6 +135,8 @@ add the following line to your jest config:
     mobileEmulation: {
         deviceName: 'iPhone 6/7/8',
     },
+    // optional, default 10000
+    waitTimeout: 50000,
   },
 }
 ```
