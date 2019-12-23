@@ -84,7 +84,7 @@
     "import-sort-cli": "^5.2.0",
     "import-sort-style-4catalyzer": "^4.3.0",
     "jest": "^24.9.0",
-    "lint-staged": "^8.2.1",
+    "lint-staged": "^9.5.0",
     "prettier": "^1.19.1",
     "typescript": "^3.7.4"
   },
