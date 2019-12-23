@@ -66,13 +66,13 @@
     "@4c/jest-preset": "^1.4.3",
     "@4c/rollout": "^2.1.0",
     "@4c/tsconfig": "^0.3.0",
-    "@babel/cli": "^7.7.5",
-    "@babel/core": "^7.7.5",
-    "@babel/preset-typescript": "^7.7.4",
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/preset-typescript": "^7.7.7",
     "@types/node": "*",
-    "@typescript-eslint/eslint-plugin": "^2.11.0",
+    "@typescript-eslint/eslint-plugin": "^2.12.0",
     "babel-core": "^7.0.0-bridge.0",
-    "eslint": "^6.7.2",
+    "eslint": "^6.8.0",
     "eslint-config-4catalyzer": "^1.0.1",
     "eslint-config-4catalyzer-jest": "^2.0.2",
     "eslint-config-4catalyzer-typescript": "^1.1.4",
@@ -86,7 +86,7 @@
     "jest": "^24.9.0",
     "lint-staged": "^8.2.1",
     "prettier": "^1.19.1",
-    "typescript": "^3.7.3"
+    "typescript": "^3.7.4"
   },
   "dependencies": {
     "@types/fetch-mock": "^7.2.2",
