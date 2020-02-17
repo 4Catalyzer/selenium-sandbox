@@ -19,9 +19,8 @@
     "testonly": "jest",
     "eslint": "eslint . --ext .js,.ts,.tsx",
     "prettier": "prettier --ignore-path .eslintignore '**/*.{json,css,md}'",
-    "import-sort": "import-sort '**/src/**/*.{js,ts,tsx}' '!**/__generated__/*' '!**/*.d.ts'",
-    "lint": "tsc --noEmit && yarn eslint && yarn import-sort --list-different && yarn prettier --list-different",
-    "format": "yarn eslint && yarn import-sort --write && yarn prettier --write"
+    "lint": "tsc --noEmit && yarn eslint && yarn prettier --list-different",
+    "format": "yarn eslint && yarn prettier --write"
   },
   "publishConfig": {
     "access": "public"
@@ -31,22 +30,13 @@
     "singleQuote": true,
     "trailingComma": "all"
   },
-  "importSort": {
-    ".js, .ts, .tsx": {
-      "parser": "import-sort-style-4catalyzer/parser-ts",
-      "style": "import-sort-style-4catalyzer"
-    }
-  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
-    "*.{js,ts,tsx}": [
-      "eslint --fix",
-      "import-sort --write"
-    ],
+    "*.{js,ts,tsx}": "eslint --fix",
     "*.{json,css,md}": "prettier --write --ignore-path .eslintignore"
   },
   "jest": {
@@ -77,8 +67,6 @@
     "eslint-plugin-jest": "^23.7.0",
     "eslint-plugin-prettier": "^3.1.2",
     "husky": "^4.2.1",
-    "import-sort-cli": "^6.0.0",
-    "import-sort-style-4catalyzer": "^4.3.0",
     "jest": "^25.1.0",
     "lint-staged": "^10.0.7",
     "prettier": "^1.19.1",
