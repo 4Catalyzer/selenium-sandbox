@@ -1,5 +1,3 @@
-/* import-sort-ignore */
-
 declare module 'jest-environment-node';
 
 declare module '@4c/fetch-mock' {
