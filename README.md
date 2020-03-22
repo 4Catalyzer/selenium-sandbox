@@ -92,7 +92,7 @@ const request = await driver.getLastRequest();
 invariant(request.headers.Authorization == 'Bearer XXX');
 
 const requests = await driver.getRequests();
-invariant(requests.every(req => req.headers.Authorization == 'Bearer XXX'));
+invariant(requests.every((req) => req.headers.Authorization == 'Bearer XXX'));
 ```
 
 the driver has also the following utilities methods:
