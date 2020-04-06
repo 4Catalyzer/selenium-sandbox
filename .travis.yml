@@ -1,15 +1,11 @@
-sudo: false
-
 language: node_js
 node_js:
-  - '9'
-  - '8'
-cache: yarn
-deploy:
-  provider: script
-  skip_cleanup: true
-  script:
-    - yarn travis-deploy-once "yarn semantic-release"
+  - node
+
+cache:
+  yarn: true
+  npm: true
+
 branches:
   only:
     - master
