@@ -2,13 +2,6 @@ language: node_js
 node_js:
   - node
 
-jobs:
-  include:
-    - stage: Release
-      script:
-        - yarn build
-        - yarn semantic-release
-
 cache:
   yarn: true
   npm: true
