@@ -162,7 +162,7 @@ export async function buildDriver(config: Config) {
 
 // XXX the only reason for this class to exist is to be able to extract
 // AugmentedDriver correctly and keep generic inference over T
-// eslint-disable-next-line @typescript-eslint/camelcase, @typescript-eslint/class-name-casing
+// eslint-disable-next-line @typescript-eslint/naming-convention
 class __INTERNAL__DriverAugmenterFactory<T> {
   augmentDriver(driver: WebDriver, baseUrl: string) {
     return augmentDriver<T>(driver, baseUrl);
@@ -170,6 +170,6 @@ class __INTERNAL__DriverAugmenterFactory<T> {
 }
 
 export type AugmentedDriver<T> = ReturnType<
-  // eslint-disable-next-line @typescript-eslint/camelcase
+  // eslint-disable-next-line @typescript-eslint/naming-convention
   __INTERNAL__DriverAugmenterFactory<T>['augmentDriver']
 >;
