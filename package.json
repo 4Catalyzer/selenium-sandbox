@@ -79,5 +79,8 @@
     "@types/selenium-webdriver": "^4.0.0",
     "@4c/fetch-mock": "^8.0.0",
     "selenium-webdriver": "^4.0.0-alpha.1"
-  }
+  },
+  "resolutions": {
+		"punycode": "^1.4.1"
+	}
 }
