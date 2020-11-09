@@ -81,6 +81,7 @@
     "selenium-webdriver": "^4.0.0-alpha.1"
   },
   "resolutions": {
+    "//": "punycode v2 does not support browser clients",
     "punycode": "^1.4.1"
   }
 }
