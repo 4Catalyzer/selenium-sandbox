@@ -98,11 +98,14 @@ export function augmentDriver<T>(driver: WebDriver, baseUrl: string) {
         })
         .perform();
     },
+    
+    // type ValidType = string | boolean | Record<string, ValidType> | ValidType[]
 
-    executeInBrowser: <TRet>(
-      func: (ctx: Context<T>) => TRet,
+    executeInBrowser: <TRet, TParams extends ValidType = {}>(
+      func: (ctx: Context<T>, params: TParams) => TRet,
+      params: TParams = {}
     ): PromiseLike<TRet> =>
-      driver.executeScript(`return window.withTestContext(${func})`),
+      driver.executeScript(`return window.withTestContext((ctx) => (${func}(ctx, arguments[0])))`, params),
 
     executeAtStartup: (func: (ctx: Context<T>) => void) =>
       driver.executeScript(
