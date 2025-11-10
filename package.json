@@ -75,7 +75,7 @@
   },
   "dependencies": {
     "@4c/fetch-mock": "^8.0.0",
-    "@types/fetch-mock": "^7.3.3",
+    "@types/fetch-mock": "^9.2.2",
     "@types/jest": "^26.0.16",
     "@types/selenium-webdriver": "^4.0.10",
     "selenium-webdriver": "^4.0.0-alpha.8"
